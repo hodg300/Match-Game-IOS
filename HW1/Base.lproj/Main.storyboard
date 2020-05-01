@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Game Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="GameController" customModule="HW1" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="mAg-8G-pnf" userLabel="Background">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RZ2-xm-kLi">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="NvR-vx-uow" userLabel="Counter View">
+                                        <rect key="frame" x="320.33333333333331" y="30" width="88.666666666666686" height="82"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Moves" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Kd-3m-xJt" userLabel="Moves">
+                                                <rect key="frame" x="0.0" y="0.0" width="88.666666666666671" height="37"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yD0-Gx-MFI">
+                                                <rect key="frame" x="28.666666666666686" y="45" width="31.333333333333329" height="37"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="yb7-zy-lsr" userLabel="Cols">
+                                        <rect key="frame" x="82" y="313" width="250" height="270"/>
+                                        <subviews>
+                                            <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="9fj-1w-hEK" userLabel="Row0">
+                                                <rect key="frame" x="0.0" y="0.0" width="250" height="48.666666666666664"/>
+                                                <subviews>
+                                                    <button clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r4z-QI-hbK" userLabel="Button00">
+                                                        <rect key="frame" x="0.0" y="0.0" width="47.666666666666664" height="48.666666666666664"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <state key="normal" image="icons8-wicker-basket-100"/>
+                                                        <connections>
+                                                            <action selector="buttonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a1y-0i-gbp"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button clipsSubviews="YES" tag="1" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XFW-NQ-Hct" userLabel="Button01">
+                                                        <rect key="frame" x="67.666666666666657" y="0.0" width="47.333333333333343" height="48.666666666666664"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                        <state key="normal" image="icons8-wicker-basket-100"/>
+                                                        <connections>
+                                                            <action selector="buttonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4rg-Tk-xV1"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button clipsSubviews="YES" tag="2" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rza-xD-UVS" userLabel="Button02">
+                                                        <rect key="frame" x="135" y="0.0" width="47.666666666666657" height="48.666666666666664"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                        <state key="normal" image="icons8-wicker-basket-100"/>
+                                                        <connections>
+                                                            <action selector="buttonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6KY-hx-dnx"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button clipsSubviews="YES" tag="3" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xdd-HU-kZh" userLabel="Button03">
+                                                        <rect key="frame" x="202.66666666666669" y="0.0" width="47.333333333333343" height="48.666666666666664"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                        <state key="normal" image="icons8-wicker-basket-100"/>
+                                                        <connections>
+                                                            <action selector="buttonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ycA-ol-DyT"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <variation key="heightClass=compact-widthClass=regular" spacing="20"/>
+                                                <variation key="heightClass=regular-widthClass=compact" spacing="20"/>
+                                            </stackView>
+                                            <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="rVq-BW-cPG" userLabel="Row1">
+                                                <rect key="frame" x="0.0" y="73.666666666666686" width="250" height="49"/>
+                                                <subviews>
+                                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ARC-gL-he9" userLabel="Button10">
+                                                        <rect key="frame" x="0.0" y="0.0" width="47.666666666666664" height="49"/>
+                                                        <state key="normal" image="icons8-wicker-basket-100"/>
+                                                        <connections>
+                                                            <action selector="buttonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gWH-BL-wll"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A9t-12-4HC" userLabel="Button11">
+                                                        <rect key="frame" x="67.666666666666657" y="0.0" width="47.333333333333343" height="49"/>
+                                                        <state key="normal" image="icons8-wicker-basket-100"/>
+                                                        <connections>
+                                                            <action selector="buttonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7LC-VD-tlr"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oN4-AX-gjj" userLabel="Button12">
+                                                        <rect key="frame" x="135" y="0.0" width="47.666666666666657" height="49"/>
+                                                        <state key="normal" image="icons8-wicker-basket-100"/>
+                                                        <connections>
+                                                            <action selector="buttonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="M3C-yU-tor"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y2g-Fb-SEo" userLabel="Button13">
+                                                        <rect key="frame" x="202.66666666666669" y="0.0" width="47.333333333333343" height="49"/>
+                                                        <state key="normal" image="icons8-wicker-basket-100"/>
+                                                        <connections>
+                                                            <action selector="buttonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nbR-wa-1xf"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <variation key="heightClass=compact-widthClass=regular" spacing="20"/>
+                                                <variation key="heightClass=regular-widthClass=compact" spacing="20"/>
+                                            </stackView>
+                                            <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="dsh-ay-By6" userLabel="Row2">
+                                                <rect key="frame" x="0.0" y="147.66666666666669" width="250" height="48.666666666666657"/>
+                                                <subviews>
+                                                    <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="91s-mA-xx1" userLabel="Button20">
+                                                        <rect key="frame" x="0.0" y="0.0" width="47.666666666666664" height="48.666666666666664"/>
+                                                        <state key="normal" image="icons8-wicker-basket-100"/>
+                                                        <connections>
+                                                            <action selector="buttonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Ge-G2-YhT"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bwV-3B-vJm" userLabel="Button21">
+                                                        <rect key="frame" x="67.666666666666657" y="0.0" width="47.333333333333343" height="48.666666666666664"/>
+                                                        <state key="normal" image="icons8-wicker-basket-100"/>
+                                                        <connections>
+                                                            <action selector="buttonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WXr-Rc-nak"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qwk-ir-pFO" userLabel="Button22">
+                                                        <rect key="frame" x="135" y="0.0" width="47.666666666666657" height="48.666666666666664"/>
+                                                        <state key="normal" image="icons8-wicker-basket-100"/>
+                                                        <connections>
+                                                            <action selector="buttonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Yvn-d7-ioA"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ri-Pp-dlC" userLabel="Button23">
+                                                        <rect key="frame" x="202.66666666666669" y="0.0" width="47.333333333333343" height="48.666666666666664"/>
+                                                        <state key="normal" image="icons8-wicker-basket-100"/>
+                                                        <connections>
+                                                            <action selector="buttonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bqn-zp-wMD"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <variation key="heightClass=compact-widthClass=regular" spacing="20"/>
+                                                <variation key="heightClass=regular-widthClass=compact" spacing="20"/>
+                                            </stackView>
+                                            <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="iaX-yp-DxC" userLabel="Row3">
+                                                <rect key="frame" x="0.0" y="221.33333333333337" width="250" height="48.666666666666686"/>
+                                                <subviews>
+                                                    <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q38-W4-oix" userLabel="Button30">
+                                                        <rect key="frame" x="0.0" y="0.0" width="47.666666666666664" height="48.666666666666664"/>
+                                                        <state key="normal" image="icons8-wicker-basket-100"/>
+                                                        <connections>
+                                                            <action selector="buttonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vYC-RZ-HJ9"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7cE-Ef-R0A" userLabel="Button31">
+                                                        <rect key="frame" x="67.666666666666657" y="0.0" width="47.333333333333343" height="48.666666666666664"/>
+                                                        <state key="normal" image="icons8-wicker-basket-100"/>
+                                                        <connections>
+                                                            <action selector="buttonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bv0-Kn-Zk5"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="14" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QQJ-AE-Dxe" userLabel="Button32">
+                                                        <rect key="frame" x="135" y="0.0" width="47.666666666666657" height="48.666666666666664"/>
+                                                        <state key="normal" image="icons8-wicker-basket-100"/>
+                                                        <connections>
+                                                            <action selector="buttonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eDC-3b-84e"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="15" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Az-Nz-uJF" userLabel="Button33">
+                                                        <rect key="frame" x="202.66666666666669" y="0.0" width="47.333333333333343" height="48.666666666666664"/>
+                                                        <state key="normal" image="icons8-wicker-basket-100"/>
+                                                        <connections>
+                                                            <action selector="buttonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GNv-Dq-Oty"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <variation key="heightClass=compact-widthClass=regular" spacing="20"/>
+                                                <variation key="heightClass=regular-widthClass=compact" spacing="20"/>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="500" id="64R-zs-hit">
+                                                <variation key="heightClass=compact-widthClass=compact" constant="200"/>
+                                                <variation key="heightClass=compact-widthClass=regular" constant="250"/>
+                                                <variation key="heightClass=regular-widthClass=compact" constant="270"/>
+                                                <variation key="heightClass=regular-widthClass=regular" constant="600"/>
+                                            </constraint>
+                                            <constraint firstAttribute="width" constant="200" id="xEg-27-lP5">
+                                                <variation key="heightClass=compact-widthClass=compact" constant="250"/>
+                                                <variation key="heightClass=compact-widthClass=regular" constant="300"/>
+                                                <variation key="heightClass=regular-widthClass=compact" constant="250"/>
+                                                <variation key="heightClass=regular-widthClass=regular" constant="700"/>
+                                            </constraint>
+                                        </constraints>
+                                        <variation key="heightClass=regular-widthClass=compact" spacing="25"/>
+                                        <variation key="heightClass=regular-widthClass=regular" spacing="100"/>
+                                    </stackView>
+                                    <label hidden="YES" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Good Job!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xBi-vk-08W" userLabel="DoneLabel">
+                                        <rect key="frame" x="150.66666666666666" y="50" width="112.66666666666666" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Lx7-eX-OHh"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="60"/>
+                                        <color key="textColor" systemColor="systemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="25"/>
+                                        </variation>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H1w-nZ-j8f" userLabel="RestartBtn">
+                                        <rect key="frame" x="5" y="30" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="VO0-b2-iAR">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="40"/>
+                                            </constraint>
+                                            <constraint firstAttribute="height" constant="50" id="a93-ET-XFm">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="40"/>
+                                            </constraint>
+                                        </constraints>
+                                        <state key="normal" image="replay icon"/>
+                                        <connections>
+                                            <action selector="buttonRestartGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mEt-fz-NwM"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your time is : " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XOR-mn-Hte">
+                                        <rect key="frame" x="100.66666666666667" y="623" width="212.66666666666663" height="45.666666666666629"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="H1w-nZ-j8f" firstAttribute="top" secondItem="RZ2-xm-kLi" secondAttribute="top" constant="50" id="0TS-P4-Dgl">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="20"/>
+                                        <variation key="heightClass=compact-widthClass=regular" constant="10"/>
+                                        <variation key="heightClass=regular-widthClass=compact" constant="30"/>
+                                    </constraint>
+                                    <constraint firstItem="XOR-mn-Hte" firstAttribute="centerX" secondItem="RZ2-xm-kLi" secondAttribute="centerX" id="8bg-wV-LxQ"/>
+                                    <constraint firstItem="yb7-zy-lsr" firstAttribute="centerX" secondItem="RZ2-xm-kLi" secondAttribute="centerX" id="K7k-39-fc7"/>
+                                    <constraint firstItem="XOR-mn-Hte" firstAttribute="top" secondItem="yb7-zy-lsr" secondAttribute="bottom" constant="15" id="KGQ-ZK-o2V">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="40"/>
+                                        <variation key="heightClass=regular-widthClass=regular" constant="40"/>
+                                    </constraint>
+                                    <constraint firstAttribute="trailing" secondItem="NvR-vx-uow" secondAttribute="trailing" constant="5" id="QHS-X3-PzR"/>
+                                    <constraint firstItem="H1w-nZ-j8f" firstAttribute="leading" secondItem="RZ2-xm-kLi" secondAttribute="leading" constant="5" id="bxn-c1-gto">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="30"/>
+                                        <variation key="heightClass=compact-widthClass=regular" constant="30"/>
+                                    </constraint>
+                                    <constraint firstItem="NvR-vx-uow" firstAttribute="top" secondItem="RZ2-xm-kLi" secondAttribute="top" constant="50" id="cpg-jH-PeG">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="20"/>
+                                        <variation key="heightClass=compact-widthClass=regular" constant="10"/>
+                                        <variation key="heightClass=regular-widthClass=compact" constant="30"/>
+                                    </constraint>
+                                    <constraint firstItem="xBi-vk-08W" firstAttribute="centerX" secondItem="RZ2-xm-kLi" secondAttribute="centerX" id="hCy-TB-EyD"/>
+                                    <constraint firstItem="yb7-zy-lsr" firstAttribute="centerY" secondItem="RZ2-xm-kLi" secondAttribute="centerY" id="qLl-EE-C3u"/>
+                                    <constraint firstItem="xBi-vk-08W" firstAttribute="top" secondItem="RZ2-xm-kLi" secondAttribute="top" constant="30" id="stU-JR-7n4">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="10"/>
+                                        <variation key="heightClass=regular-widthClass=compact" constant="50"/>
+                                        <variation key="heightClass=regular-widthClass=regular" constant="30"/>
+                                    </constraint>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="mAg-8G-pnf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="7Ow-PP-2CE"/>
+                            <constraint firstAttribute="bottom" secondItem="RZ2-xm-kLi" secondAttribute="bottom" id="9zZ-eH-KGg"/>
+                            <constraint firstItem="RZ2-xm-kLi" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="F3h-5a-GOh"/>
+                            <constraint firstItem="RZ2-xm-kLi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Tby-8I-URf"/>
+                            <constraint firstItem="RZ2-xm-kLi" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="XwZ-N8-P0m"/>
+                            <constraint firstAttribute="bottom" secondItem="mAg-8G-pnf" secondAttribute="bottom" id="sP4-3a-dgJ"/>
+                            <constraint firstItem="mAg-8G-pnf" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="z3W-Qd-ceJ"/>
+                            <constraint firstItem="mAg-8G-pnf" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="zlL-lV-c1W"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="game_BTN_00" destination="r4z-QI-hbK" id="mz3-P4-drY"/>
+                        <outlet property="game_BTN_01" destination="XFW-NQ-Hct" id="QcD-bX-zE5"/>
+                        <outlet property="game_BTN_02" destination="Rza-xD-UVS" id="ppn-3J-DhX"/>
+                        <outlet property="game_BTN_03" destination="xdd-HU-kZh" id="JPC-h3-wvV"/>
+                        <outlet property="game_BTN_10" destination="ARC-gL-he9" id="yE3-Yj-67R"/>
+                        <outlet property="game_BTN_11" destination="A9t-12-4HC" id="Pkn-H7-C1j"/>
+                        <outlet property="game_BTN_12" destination="oN4-AX-gjj" id="TPu-3i-m0n"/>
+                        <outlet property="game_BTN_13" destination="Y2g-Fb-SEo" id="8tv-5T-YwZ"/>
+                        <outlet property="game_BTN_20" destination="91s-mA-xx1" id="0Vl-jK-hpv"/>
+                        <outlet property="game_BTN_21" destination="bwV-3B-vJm" id="Xpb-ap-mXo"/>
+                        <outlet property="game_BTN_22" destination="qwk-ir-pFO" id="4Ic-Lm-BCL"/>
+                        <outlet property="game_BTN_23" destination="1ri-Pp-dlC" id="fV6-mx-pdJ"/>
+                        <outlet property="game_BTN_30" destination="Q38-W4-oix" id="DE1-5T-fmY"/>
+                        <outlet property="game_BTN_31" destination="7cE-Ef-R0A" id="nbL-78-FKk"/>
+                        <outlet property="game_BTN_32" destination="QQJ-AE-Dxe" id="SFA-Nw-jHA"/>
+                        <outlet property="game_BTN_33" destination="4Az-Nz-uJF" id="axS-5Q-q4m"/>
+                        <outlet property="game_BTN_restart" destination="H1w-nZ-j8f" id="n3v-cO-73I"/>
+                        <outlet property="game_LBL_GoodJob" destination="xBi-vk-08W" id="3em-HT-q25"/>
+                        <outlet property="game_LBL_counter" destination="yD0-Gx-MFI" id="y3Q-uZ-hZe"/>
+                        <outlet property="game_LBL_stopper" destination="XOR-mn-Hte" id="eoJ-jX-S9w"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-526" y="46"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="background" width="640" height="960"/>
+        <image name="icons8-wicker-basket-100" width="100" height="100"/>
+        <image name="replay icon" width="100" height="100"/>
+    </resources>
+</document>
