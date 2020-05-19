@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A7578B292473D90B00956998 /* StartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7578B282473D90B00956998 /* StartController.swift */; };
+		A7578B2B24740F0000956998 /* HighScoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7578B2A24740F0000956998 /* HighScoreController.swift */; };
 		A7FFFF81244DAF0F000FADE3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FFFF80244DAF0F000FADE3 /* AppDelegate.swift */; };
 		A7FFFF83244DAF0F000FADE3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FFFF82244DAF0F000FADE3 /* SceneDelegate.swift */; };
 		A7FFFF85244DAF0F000FADE3 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FFFF84244DAF0F000FADE3 /* GameController.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A7578B282473D90B00956998 /* StartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartController.swift; sourceTree = "<group>"; };
+		A7578B2A24740F0000956998 /* HighScoreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreController.swift; sourceTree = "<group>"; };
 		A7FFFF7D244DAF0F000FADE3 /* HW1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HW1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7FFFF80244DAF0F000FADE3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A7FFFF82244DAF0F000FADE3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,7 +62,9 @@
 			children = (
 				A7FFFF80244DAF0F000FADE3 /* AppDelegate.swift */,
 				A7FFFF82244DAF0F000FADE3 /* SceneDelegate.swift */,
+				A7578B282473D90B00956998 /* StartController.swift */,
 				A7FFFF84244DAF0F000FADE3 /* GameController.swift */,
+				A7578B2A24740F0000956998 /* HighScoreController.swift */,
 				A7FFFF86244DAF0F000FADE3 /* Main.storyboard */,
 				A7FFFF89244DAF10000FADE3 /* Assets.xcassets */,
 				A7FFFF8B244DAF10000FADE3 /* LaunchScreen.storyboard */,
@@ -141,6 +147,8 @@
 				A7FFFF85244DAF0F000FADE3 /* GameController.swift in Sources */,
 				A7FFFF81244DAF0F000FADE3 /* AppDelegate.swift in Sources */,
 				A7FFFF83244DAF0F000FADE3 /* SceneDelegate.swift in Sources */,
+				A7578B292473D90B00956998 /* StartController.swift in Sources */,
+				A7578B2B24740F0000956998 /* HighScoreController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
