@@ -23,7 +23,7 @@ class StartController: UIViewController {
         if(sender.tag == MATRIX4X4){
             self.performSegue(withIdentifier: "goToGame4x4", sender: self)
         }else if(sender.tag == MATRIX4X5){
-            self.performSegue(withIdentifier: "goToGame4x5", sender: self)
+            self.performSegue(withIdentifier: "goToGame5x4", sender: self)
         }
         
     }
@@ -36,11 +36,13 @@ class StartController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        
         if(segue.identifier == "goToGame4x4"){
-            let secondView = segue.destination as! GameController
-            secondView.mode = MATRIX4X4
-        }else if(segue.identifier == "goToGame4x5"){
-            let secondView = segue.destination as! GameController
-            secondView.mode = MATRIX4X5
+            let gameView = segue.destination as! GameController
+            gameView.numberOfRows = 4
+            gameView.numberOfCols = 4
+        }else if(segue.identifier == "goToGame5x4"){
+            let gameView = segue.destination as! GameController
+            gameView.numberOfRows = 5
+            gameView.numberOfCols = 4
         }else if(segue.identifier == "goToHighScore"){
             //let secondView = segue.destination as! HighScoreController
         }
