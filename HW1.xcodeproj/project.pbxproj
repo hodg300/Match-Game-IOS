@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A731AC9D247ABE87000261DC /* MyCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A731AC9C247ABE87000261DC /* MyCustomCell.swift */; };
 		A7578B292473D90B00956998 /* StartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7578B282473D90B00956998 /* StartController.swift */; };
 		A7578B2B24740F0000956998 /* HighScoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7578B2A24740F0000956998 /* HighScoreController.swift */; };
 		A7E4905624757D91009379A7 /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E4905524757D91009379A7 /* GameOverViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A731AC9C247ABE87000261DC /* MyCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomCell.swift; sourceTree = "<group>"; };
 		A7578B282473D90B00956998 /* StartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartController.swift; sourceTree = "<group>"; };
 		A7578B2A24740F0000956998 /* HighScoreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreController.swift; sourceTree = "<group>"; };
 		A7E4905524757D91009379A7 /* GameOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				A7FFFF89244DAF10000FADE3 /* Assets.xcassets */,
 				A7FFFF8B244DAF10000FADE3 /* LaunchScreen.storyboard */,
 				A7FFFF8E244DAF10000FADE3 /* Info.plist */,
+				A731AC9C247ABE87000261DC /* MyCustomCell.swift */,
 			);
 			path = HW1;
 			sourceTree = "<group>";
@@ -150,6 +153,7 @@
 				A7FFFF85244DAF0F000FADE3 /* GameController.swift in Sources */,
 				A7FFFF81244DAF0F000FADE3 /* AppDelegate.swift in Sources */,
 				A7E4905624757D91009379A7 /* GameOverViewController.swift in Sources */,
+				A731AC9D247ABE87000261DC /* MyCustomCell.swift in Sources */,
 				A7FFFF83244DAF0F000FADE3 /* SceneDelegate.swift in Sources */,
 				A7578B292473D90B00956998 /* StartController.swift in Sources */,
 				A7578B2B24740F0000956998 /* HighScoreController.swift in Sources */,

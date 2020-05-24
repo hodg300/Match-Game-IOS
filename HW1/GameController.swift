@@ -30,6 +30,7 @@ class GameController: UIViewController {
     var numberOfCols : Int!
     private var numberOfCells :Int = 0
     private var baskets : [UIButton] = []
+    private var second : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,8 +89,8 @@ class GameController: UIViewController {
     
     @objc func stopperFunc() {
         milisec += 1
-        let second = String(format: "%.2f", milisec/1000)
-        self.game_LBL_stopper.text = "Your time is : \(second)"
+        self.second = String(format: "%.2f", milisec/1000)
+        self.game_LBL_stopper.text = "Your time is : \(String(self.second!))s"
     }
   
     
@@ -160,10 +161,10 @@ class GameController: UIViewController {
                let gameOverView = segue.destination as! GameOverViewController
             if(numberOfRows == 4){
                 gameOverView.fromMode = numberOfRows
-                gameOverView.time = game_LBL_stopper.text
+                gameOverView.time = self.second
             }else if(numberOfRows == 5){
                 gameOverView.fromMode = numberOfRows
-                gameOverView.time = game_LBL_stopper.text
+                gameOverView.time = self.second
             }
                
            

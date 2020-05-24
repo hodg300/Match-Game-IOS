@@ -8,7 +8,7 @@ class GameOverViewController: UIViewController {
     var time : String?
     override func viewDidLoad() {
         super.viewDidLoad()
-        gameOver_LBL_resultOfTime.text = time
+        gameOver_LBL_resultOfTime.text = "\(time!)s"
     }
     
 
