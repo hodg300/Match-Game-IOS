@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class GameController: UIViewController {
 
     @IBOutlet weak var game_LBL_counter: UILabel!
@@ -31,14 +32,16 @@ class GameController: UIViewController {
     private var numberOfCells :Int = 0
     private var baskets : [UIButton] = []
     private var second : String?
+    var location : MyLocation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         createAndShuffleGameCard()
         initBaskets(numOfRows: numberOfRows,numOfCols: numberOfCols)
-        
-       
     }
+    
+    
     
     func createAndShuffleGameCard(){
               
@@ -155,6 +158,9 @@ class GameController: UIViewController {
         return row;
     }
     
+    
+
+    
        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
           
            if(segue.identifier == "goToGameOver"){
@@ -162,9 +168,11 @@ class GameController: UIViewController {
             if(numberOfRows == 4){
                 gameOverView.fromMode = numberOfRows
                 gameOverView.time = self.second
+                gameOverView.location = self.location
             }else if(numberOfRows == 5){
                 gameOverView.fromMode = numberOfRows
                 gameOverView.time = self.second
+                gameOverView.location = self.location
             }
                
            
@@ -174,6 +182,9 @@ class GameController: UIViewController {
     
     
 }
+
+
+
 
 
 
