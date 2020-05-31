@@ -10,10 +10,14 @@ class GameOverViewController: UIViewController {
     var fromMode : Int?
     var time : String?
     var location : MyLocation?
-    var player : MyPlayer?
+    var players : [MyPlayer] = []
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         gameOver_LBL_resultOfTime.text = "\(time!)s"
+        loadPlayersFromStorage()
+        
     }
     
 
@@ -24,16 +28,48 @@ class GameOverViewController: UIViewController {
     }
     @IBAction func onClickMenu(_ sender: Any) {
         self.performSegue(withIdentifier: "goToMenu", sender: self)
-
     }
     
     @IBAction func gameOver_BTN_save(_ sender: Any) {
-        print("\(String(describing: self.location?.lat)) , \(String(describing: self.location?.lng))")
-        player = MyPlayer(gameOver_EDT_name.text ?? "PLAYER",Date(),self.location!.lat!,self.location!.lng!,String(gameOver_LBL_resultOfTime.text!))
-        player?.printIt()
         //use in userDefault to save player details inside iphone
+        if(players.count < 10){
+            players.append(MyPlayer(gameOver_EDT_name.text ?? "PLAYER",Date(),self.location!.lat!,self.location!.lng!,String(gameOver_LBL_resultOfTime.text!)))
+        }else{
+            players.removeLast()
+        }
+        savePlayersToStorage()
         gameOver_VIEW_popUp.isHidden = true
         view.endEditing(true)
+    }
+    
+    func loadPlayersFromStorage(){
+        let allPlayersJson = UserDefaults.standard.string(forKey: "AllPlayers")
+       
+        
+        if let safeAllPlayersJson = allPlayersJson {
+            let decoder = JSONDecoder()
+            let data = Data(safeAllPlayersJson.utf8)
+            do{
+                self.players = try decoder.decode([MyPlayer].self, from: data)
+            }catch{}
+             printAllPlayers()
+            
+        }
+    }
+    
+    func savePlayersToStorage(){
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
+        let data = try! encoder.encode(players)
+        let playersJson : String = String(data: data , encoding: .utf8)!
+        
+        UserDefaults.standard.set(playersJson, forKey: "AllPlayers")
+    }
+    
+    func printAllPlayers(){
+        for player in players{
+            player.printIt()
+        }
     }
     
     

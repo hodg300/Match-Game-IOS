@@ -1,14 +1,14 @@
 
 import Foundation
 import CoreLocation
-class MyPlayer {
+class MyPlayer : Codable {
 
     
     var name: String?
     var date: Date?
     var lat : Double?
     var lng : Double?
-    var time : String?
+    var time : String!
     
     init(_ name: String, _ date: Date,_ lat: Double, _ lng: Double, _ time: String) {
         self.name = name

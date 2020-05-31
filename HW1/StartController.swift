@@ -17,8 +17,8 @@ class StartController: UIViewController {
         super.viewDidLoad()
         
         locationManager = CLLocationManager()
-        locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
+        locationManager.delegate = self
         locationManager.requestLocation()
     }
     
