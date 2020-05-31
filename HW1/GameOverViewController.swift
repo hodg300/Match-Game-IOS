@@ -31,13 +31,22 @@ class GameOverViewController: UIViewController {
     }
     
     @IBAction func gameOver_BTN_save(_ sender: Any) {
+        let newPlayer =  MyPlayer(gameOver_EDT_name.text ?? "PLAYER",Date(),self.location!.lat!,self.location!.lng!,String(gameOver_LBL_resultOfTime.text!))
+        let lastPlayerTimeInDouble : Double = (players.last!.time as NSString).doubleValue
+        let newPlayerTimeInDouble : Double = (newPlayer.time as NSString).doubleValue
+
         //use in userDefault to save player details inside iphone
         if(players.count < 10){
-            players.append(MyPlayer(gameOver_EDT_name.text ?? "PLAYER",Date(),self.location!.lat!,self.location!.lng!,String(gameOver_LBL_resultOfTime.text!)))
-        }else{
+            players.append(newPlayer)
+            savePlayersToStorage()
+        }else if(newPlayerTimeInDouble.isLess(than: lastPlayerTimeInDouble)){
             players.removeLast()
+            players.append(newPlayer)
+            savePlayersToStorage()
+        }else{
+            
         }
-        savePlayersToStorage()
+       
         gameOver_VIEW_popUp.isHidden = true
         view.endEditing(true)
     }
@@ -52,9 +61,10 @@ class GameOverViewController: UIViewController {
             do{
                 self.players = try decoder.decode([MyPlayer].self, from: data)
             }catch{}
-             printAllPlayers()
-            
+             
         }
+        players.sort(by : {$0.time < $1.time})
+        printAllPlayers()
     }
     
     func savePlayersToStorage(){
