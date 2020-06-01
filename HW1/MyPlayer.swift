@@ -9,6 +9,7 @@ class MyPlayer : Codable {
     var lat : Double?
     var lng : Double?
     var time : String!
+    var index : Int?
     
     init(_ name: String, _ date: Date,_ lat: Double, _ lng: Double, _ time: String) {
         self.name = name

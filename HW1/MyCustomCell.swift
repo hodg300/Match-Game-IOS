@@ -5,5 +5,5 @@ import UIKit
 
 class MyCustomCell: UITableViewCell {
     
-    @IBOutlet weak var cell_LBL_name: UILabel!
+    @IBOutlet weak var MyCustomCell_BTN_cellClick: UIButton!
 }

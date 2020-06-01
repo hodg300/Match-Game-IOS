@@ -31,7 +31,7 @@ class GameOverViewController: UIViewController {
     }
     
     @IBAction func gameOver_BTN_save(_ sender: Any) {
-        let newPlayer =  MyPlayer(gameOver_EDT_name.text ?? "PLAYER",Date(),self.location!.lat!,self.location!.lng!,String(gameOver_LBL_resultOfTime.text!))
+        let newPlayer =  MyPlayer(gameOver_EDT_name.text ?? "PLAYER" ,Date(),self.location!.lat!,self.location!.lng!,String(gameOver_LBL_resultOfTime.text!))
         let lastPlayerTimeInDouble : Double = (players.last!.time as NSString).doubleValue
         let newPlayerTimeInDouble : Double = (newPlayer.time as NSString).doubleValue
 
