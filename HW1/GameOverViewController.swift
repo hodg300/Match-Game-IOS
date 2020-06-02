@@ -5,6 +5,8 @@ class GameOverViewController: UIViewController {
      @IBOutlet weak var gameOver_LBL_resultOfTime: UILabel!
     @IBOutlet weak var gameOver_EDT_name: UITextField!
     @IBOutlet weak var gameOver_VIEW_popUp: UIView!
+    @IBOutlet weak var gameOver_BTN_restart: UIButton!
+    @IBOutlet weak var gameOver_BTN_menu: UIButton!
     
     
     var fromMode : Int?
@@ -15,11 +17,27 @@ class GameOverViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        gameOver_LBL_resultOfTime.text = "\(time!)s"
+        
+        //dismiss keyboard
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        checkIfShowDialog()
+        gameOver_LBL_resultOfTime.text = "\(time!)"
+        gameOver_BTN_restart.isEnabled = false
+        gameOver_BTN_menu.isEnabled = false
         loadPlayersFromStorage()
         
     }
     
+    func checkIfShowDialog(){
+        if(players.count >= 10){
+            let lastPlayerTimeInDouble : Double = (players.last!.time as NSString).doubleValue
+            let newPlayerTimeInDouble : Double = (String(gameOver_LBL_resultOfTime.text!) as NSString).doubleValue
+            if(lastPlayerTimeInDouble < newPlayerTimeInDouble){
+                gameOver_VIEW_popUp.isHidden = true
+            }
+        }
+    }
 
     @IBAction func onClickRestart(_ sender: Any) {
         self.performSegue(withIdentifier: "goToGame", sender: self)
@@ -31,24 +49,44 @@ class GameOverViewController: UIViewController {
     }
     
     @IBAction func gameOver_BTN_save(_ sender: Any) {
-        let newPlayer =  MyPlayer(gameOver_EDT_name.text ?? "PLAYER" ,Date(),self.location!.lat!,self.location!.lng!,String(gameOver_LBL_resultOfTime.text!))
-        let lastPlayerTimeInDouble : Double = (players.last!.time as NSString).doubleValue
-        let newPlayerTimeInDouble : Double = (newPlayer.time as NSString).doubleValue
-
-        //use in userDefault to save player details inside iphone
-        if(players.count < 10){
-            players.append(newPlayer)
-            savePlayersToStorage()
-        }else if(newPlayerTimeInDouble.isLess(than: lastPlayerTimeInDouble)){
-            players.removeLast()
-            players.append(newPlayer)
-            savePlayersToStorage()
+        
+        
+        let newPlayer =  MyPlayer(gameOver_EDT_name.text!
+            ,createDate(),self.location!.lat!,self.location!.lng!,String(gameOver_LBL_resultOfTime.text!))
+       if(gameOver_EDT_name.text == ""){
+        newPlayer.name = "Player"
+       }
+        print("\(String(describing: newPlayer.name))")
+        if(players.count > 1){
+//            let lastPlayerTimeInDouble : Double = (players.last!.time as NSString).doubleValue
+//            let newPlayerTimeInDouble : Double = (newPlayer.time as NSString).doubleValue
+        
+            //use in userDefault to save player details inside iphone
+            if(players.count < 10){
+                players.append(newPlayer)
+                savePlayersToStorage()
+            }else{
+                players.removeLast()
+                players.append(newPlayer)
+                savePlayersToStorage()
+            }
         }else{
-            
+            players.append(newPlayer)
+            savePlayersToStorage()
         }
        
         gameOver_VIEW_popUp.isHidden = true
         view.endEditing(true)
+        gameOver_BTN_restart.isEnabled = true
+        gameOver_BTN_menu.isEnabled = true
+    }
+    
+    func createDate() -> String{
+        let formatter = DateFormatter()
+        formatter.timeStyle = .none
+        formatter.dateStyle = .short
+        formatter.timeZone = .none
+        return formatter.string(from: Date())
     }
     
     func loadPlayersFromStorage(){
@@ -64,8 +102,7 @@ class GameOverViewController: UIViewController {
              
         }
         players.sort(by : {$0.time < $1.time})
-        printAllPlayers()
-    }
+        }
     
     func savePlayersToStorage(){
         let encoder = JSONEncoder()
@@ -76,11 +113,7 @@ class GameOverViewController: UIViewController {
         UserDefaults.standard.set(playersJson, forKey: "AllPlayers")
     }
     
-    func printAllPlayers(){
-        for player in players{
-            player.printIt()
-        }
-    }
+
     
     
     // MARK: - Navigation
@@ -97,5 +130,11 @@ class GameOverViewController: UIViewController {
     }
     
     
+    //Calls this function when the tap is recognized.
+@objc func dismissKeyboard() {
+    //Causes the view (or one of its embedded text fields) to resign the first responder status.
+    view.endEditing(true)
+}
 
 }
+

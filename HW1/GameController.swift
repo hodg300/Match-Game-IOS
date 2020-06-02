@@ -24,14 +24,13 @@ class GameController: UIViewController {
     private var allImages : [UIImage] = []
     private var shuffleImages : [UIImage] = []
     private var stopper:Timer?
-    private var milisec:Float = 0
+    private var counter = 0.0
     private var firstClickToStartStopper:Bool = true
     private var shuffled : Bool = false
     var numberOfRows : Int!
     var numberOfCols : Int!
     private var numberOfCells :Int = 0
     private var baskets : [UIButton] = []
-    private var second : String?
     var location : MyLocation?
     
     override func viewDidLoad() {
@@ -60,7 +59,7 @@ class GameController: UIViewController {
     
     @IBAction func buttonClick(_ sender: UIButton) {
           if(firstClickToStartStopper){
-              stopper = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(stopperFunc), userInfo: nil, repeats: true)
+              stopper = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(stopperFunc), userInfo: nil, repeats: true)
               firstClickToStartStopper = false
           }
           
@@ -91,9 +90,21 @@ class GameController: UIViewController {
     
     
     @objc func stopperFunc() {
-        milisec += 1
-        self.second = String(format: "%.2f", milisec/1000)
-        self.game_LBL_stopper.text = "Your time is : \(String(self.second!))s"
+        counter += 1
+        let flooredCounter = Int(floor(counter))
+        let minute = (flooredCounter % 3600) / 60
+        var minuteString = "\(minute)"
+        if(minute < 10){
+            minuteString = "0\(minute)"
+        }
+        
+        let second = (flooredCounter % 3600) % 60
+        var secondString = "\(second)"
+        if(second < 10){
+            secondString = "0\(second)"
+        }
+        
+        self.game_LBL_stopper.text = "\(minuteString):\(secondString)"
     }
   
     
@@ -167,11 +178,11 @@ class GameController: UIViewController {
                let gameOverView = segue.destination as! GameOverViewController
             if(numberOfRows == 4){
                 gameOverView.fromMode = numberOfRows
-                gameOverView.time = self.second
+                gameOverView.time = self.game_LBL_stopper.text
                 gameOverView.location = self.location
             }else if(numberOfRows == 5){
                 gameOverView.fromMode = numberOfRows
-                gameOverView.time = self.second
+                gameOverView.time = self.game_LBL_stopper.text
                 gameOverView.location = self.location
             }
                

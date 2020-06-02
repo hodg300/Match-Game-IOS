@@ -20,6 +20,7 @@ class StartController: UIViewController {
         locationManager.requestWhenInUseAuthorization()
         locationManager.delegate = self
         locationManager.requestLocation()
+//        UserDefaults.standard.removeObject(forKey: "AllPlayers")
     }
     
 
@@ -37,6 +38,8 @@ class StartController: UIViewController {
     @IBAction func goToHighScore(_ sender: Any) {
         self.performSegue(withIdentifier: "goToHighScore", sender: self)
     }
+    
+    
     
     
  

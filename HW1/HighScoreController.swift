@@ -37,9 +37,9 @@ class HighScoreController: UIViewController ,UITableViewDelegate,UITableViewData
                 self.topTenScore = try decoder.decode([MyPlayer].self, from: data)
             }catch{}
         }
-        
-        topTenScore.sort(by : {$0.time < $1.time})
-       
+        if(topTenScore.count > 1){
+            topTenScore.sort(by : {$0.time < $1.time})
+        }
     }
     
     
@@ -54,8 +54,7 @@ class HighScoreController: UIViewController ,UITableViewDelegate,UITableViewData
         let name = self.topTenScore[indexPath.row].name
         let time = self.topTenScore[indexPath.row].time
         let date = self.topTenScore[indexPath.row].date
-        cell?.MyCustomCell_BTN_cellClick?.setTitle("\(name!) , \(time!) , \(date!)", for: .normal)
-        cell?.MyCustomCell_BTN_cellClick?.tag = indexPath.row
+        cell?.MyCustomCell_LBL_cell?.text = "\(name!) , \(time!) , \(date!)"
         
         
         if(cell == nil){
@@ -65,30 +64,39 @@ class HighScoreController: UIViewController ,UITableViewDelegate,UITableViewData
         return cell!
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        showLoaction(index: indexPath.row)
+    }
+    
     
     //listener for every cell
-    @IBAction func onClickCell(_ sender: UIButton) {
-//        topTenScore[1].lat=30.432124
-//        topTenScore[1].lng=31.432124
-        let center = CLLocationCoordinate2D(latitude: topTenScore[sender.tag].lat!, longitude: topTenScore[sender.tag].lng!)
-//        print("status : \(topTenScore[sender.tag].lat!) ,  \(sender.tag)")
-        let region = MKCoordinateRegion.init(center: center, span: MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002))
-        HighScore_MAP_map.setRegion(region, animated: true)
+    func showLoaction(index: Int){
+    
+        //create annotate
+        let point = MKPointAnnotation()
+        point.title = topTenScore[index].name
+        point.coordinate = CLLocationCoordinate2DMake(topTenScore[index].lat!,topTenScore[index].lng!)
+        HighScore_MAP_map.addAnnotation(point)
         
+        //set camera to annotate location
+        let center = CLLocationCoordinate2D(latitude: topTenScore[index].lat!, longitude: topTenScore[index].lng!)
+        let camera = MKMapCamera(lookingAtCenter: center, fromDistance: 1000.0, pitch: 90.0, heading: 180.0)
+        HighScore_MAP_map.setCamera(camera, animated: true)
         
     }
  
 
+    @IBAction func goBack(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "goToStart", sender: self)
+    }
     
     
     
     // MARK: - Navigation
 
        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier == "goToStartActivity"){
-            _ = segue.destination as! StartController
-           
-             
+        if(segue.identifier == "goToStart"){
+        
         }
 
     }
